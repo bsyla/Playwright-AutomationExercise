@@ -2,8 +2,10 @@ import { test, type Page } from "@playwright/test";
 import CredentialsGenerator from "../fixtures/credentialsGenerator";
 import HomePage from "../pageObjects/homePage";
 import SignupLoginPage from "../pageObjects/signup-login-page";
+import BasePage from "../pageObjects/basePage";
 
 const generatedUser = new CredentialsGenerator();
+const authFile = "./.auth/LoginAuth.json";
 
 // test.skip("Sign up as standard user", async ({ browser }) => {
 //   const homePage = new HomePage(page);
@@ -17,11 +19,12 @@ const generatedUser = new CredentialsGenerator();
 //   );
 // });
 
-// test.skip("Login with existing user", async ({ page, context }) => {
-//   await context.clearCookies();
-//   const homePage = new HomePage(page);
-//   const loginPage = new SignupLoginPage(page);
-//   await homePage.navigateToPage("/login");
-//   await loginPage.loginForm("hedipi6572@acname.com", "password");
-//   await homePage.assertPageUrl("/");
-// });
+test("Login with existing user", async ({ page, context }) => {
+  await context.clearCookies();
+  const basepage = new BasePage(page);
+  const loginPage = new SignupLoginPage(page);
+  await basepage.navigateToPage("/login");
+  await loginPage.loginForm("hedipi6572@acname.com", "password");
+  await basepage.assertPageUrl("/");
+  await page.context().storageState({ path: authFile });
+});

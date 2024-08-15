@@ -1,5 +1,6 @@
 import { Page, Locator, expect } from "@playwright/test";
 import HomePage from "./homePage";
+import BasePage from "../pageObjects/basePage";
 
 export default class SignupLoginPage {
   readonly page: Page;
@@ -27,9 +28,9 @@ export default class SignupLoginPage {
   }
 
   async loginForm(email: string, password: string) {
-    const homePage = new HomePage(this.page);
+    const basepage = new BasePage(this.page);
     await this.loginEmail.fill(email);
     await this.loginPassword.fill(password);
-    await homePage.clickButton(this.loginButton);
+    await basepage.clickButton(this.loginButton);
   }
 }

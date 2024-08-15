@@ -34,7 +34,7 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: "retain-on-failure",
     testIdAttribute: "data-qa",
-    storageState: "./.auth/LoginAuth.json",
+    storageState: ".auth/LoginAuth.json",
     video: "retain-on-failure",
   },
 

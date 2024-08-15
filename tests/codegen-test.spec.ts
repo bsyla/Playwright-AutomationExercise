@@ -1,4 +1,4 @@
-import { test, Page } from "@playwright/test";
+import { test } from "@playwright/test";
 import BasePage from "../pageObjects/basePage";
 
 test("CodeGen", async ({ page }) => {
