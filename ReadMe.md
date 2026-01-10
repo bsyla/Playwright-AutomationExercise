@@ -1,35 +1,66 @@
-# Final Assignment Playwright
+# Playwright Automation Exercise
 
-The projects goes over two scenarios:
+[![Top Language](https://img.shields.io/github/languages/top/bsyla/Playwright-AutomationExercise?color=0891b2&style=flat-square)](https://github.com/bsyla/Playwright-AutomationExercise)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 
-- Adding item to cart and validating the correct item and price is shown. Two approaches were created, one by evaluating UI wise that the item details were the same and one by storing the item's prices from the HomePage and comparing it to the one shown in the Cart Page.
+---
 
-* Complete the checkout flow. For this one i have used storageState to make sure that during all tests the user is logged in, and [faker.js](https://fakerjs.dev/) library for inputting payment details.
-* I have used Codegen as the initial step of finding locators and then edited the copied script to follow with best practices mentioned during the course.
-* Execution is made for **Chromium** and **Firefox** as requested.
-* The `login-suite` spec file was created for testing purposes so i have commented it out.
-* For authentication i have used `tests/auth.setup/global-setup` for declaring the login flow and stored the `storageState` to `.auth/LoginAuth.json`.
-* Added a Github Workflow to execute tests upon every **PR**.
-* Edited the config file in order to create an HTML report upon every run and create a trace with video for failed ones only.
+## 🧩 Overview
 
-## Installation
+This project demonstrates a **scalable, maintainable Playwright automation framework** designed for end-to-end web application testing.  
 
-Use the package manager [npm](https://www.npmjs.com/) to install Playwright.
+It adheres to AQA best practices such as: 
+
+- Page Object Model (POM) for modular tests  
+- CI/CD-ready configuration  
+- Parallel test execution and cross-browser support  
+- Automated reports and screenshots for failures  
+
+---
+
+## ⚡ Features
+
+- E2E testing with **Playwright + TypeScript**  
+- Supports **Chromium, Firefox, and WebKit**  
+- Parallel execution for faster feedback  
+- Detailed test reporting with HTML reports  
+- CI/CD integration (GitHub Actions ready)  
+
+---
+
+## 🛠️ Tech Stack
+
+- **Playwright** – browser automation  
+- **TypeScript** – strong typing for maintainable tests  
+- **Node.js** – runtime environment  
+- **GitHub Actions** – CI/CD pipeline integration  
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install dependencies
 
 ```bash
-npm install --save-dev
+npm install
 ```
 
-## Install playwright
-
-```bash
-npx install playwright
-```
-
-## Running the project
+### 2. Run tests 
 
 ```bash
 npx playwright test
 ```
 
-This command will run and provide an HTML report once finished.
+### 3. Show results
+
+```bash
+npx playwright show-report
+```
+
+### Test Structure: 
+```bash
+/tests        # Test cases
+/pages        # Page Object Model files
+/fixtures     # Test data
+/playwright.config.ts   # Playwright configuration
+```
