@@ -2,7 +2,7 @@
 
 [![Playwright Tests](https://github.com/bsyla/Playwright-AutomationExercise/actions/workflows/playwright.yml/badge.svg)](https://github.com/bsyla/Playwright-AutomationExercise/actions/workflows/playwright.yml)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178c6?style=flat-square)
-![Playwright](https://img.shields.io/badge/Playwright-1.43.x-45ba4b?style=flat-square)
+![Playwright](https://img.shields.io/badge/Playwright-1.58.x-45ba4b?style=flat-square)
 
 This repository is a production-grade E2E automation platform built to showcase Senior SDET ownership.
 It demonstrates architecture discipline, deterministic selectors, API-assisted setup, and CI-ready workflows
