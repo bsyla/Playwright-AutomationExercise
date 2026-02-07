@@ -1,12 +1,12 @@
 import { expect } from "@playwright/test";
-import { BasePage } from "./base.page";
-import { Product } from "../types/product";
+import type { Product } from "../types/product";
 import { formatPrice, parsePrice } from "../utils/price";
+import { BasePage } from "./base.page";
 
 export class CartPage extends BasePage {
   private readonly cartRows = this.page.locator("#cart_info_table tbody tr");
   private readonly checkoutButton = this.page.getByRole("link", {
-    name: /Proceed To Checkout/i,
+    name: "Proceed To Checkout",
   });
   private readonly registerLoginLink = this.page.getByRole("link", {
     name: /Register \/ Login/i,
@@ -35,11 +35,15 @@ export class CartPage extends BasePage {
   async assertProductQuantity(productName: string, quantity: number) {
     const row = this.rowForProduct(productName);
     await expect(row.locator(".cart_quantity")).toContainText(
-      quantity.toString()
+      quantity.toString(),
     );
   }
 
-  async assertProductTotal(productName: string, unitPrice: string, quantity: number) {
+  async assertProductTotal(
+    productName: string,
+    unitPrice: string,
+    quantity: number,
+  ) {
     const row = this.rowForProduct(productName);
     const expectedTotal = formatPrice(parsePrice(unitPrice) * quantity);
     await expect(row.locator(".cart_total_price")).toContainText(expectedTotal);

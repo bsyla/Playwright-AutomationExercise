@@ -1,7 +1,8 @@
-import { Page } from "@playwright/test";
+import type { Page } from "@playwright/test";
 
-const blockedHosts = /googleads|doubleclick|adservice|googlesyndication|adsystem/;
+const blockedHosts =
+	/googleads|doubleclick|adservice|googlesyndication|adsystem/;
 
 export const blockThirdParty = async (page: Page) => {
-  await page.route(blockedHosts, (route) => route.abort());
+	await page.route(blockedHosts, (route) => route.abort());
 };

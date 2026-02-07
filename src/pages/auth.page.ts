@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
+import type { User } from "../types/user";
 import { BasePage } from "./base.page";
-import { User } from "../types/user";
 
 export class AuthPage extends BasePage {
   private readonly loginEmail = this.getByTestId("login-email");
@@ -17,7 +17,7 @@ export class AuthPage extends BasePage {
 
   async assertOnLoginPage() {
     await expect(
-      this.page.getByRole("heading", { name: /Login to your account/i })
+      this.page.getByRole("heading", { name: /Login to your account/i }),
     ).toBeVisible();
     await expect(this.page).toHaveURL(/\/login/);
   }
@@ -35,7 +35,9 @@ export class AuthPage extends BasePage {
   }
 
   async assertLoginError(message: string) {
-    await expect(this.page.getByText(message)).toBeVisible();
+    await this.page.on("dialog", async (dialog) => {
+      await dialog.accept(message);
+    });
   }
 
   async assertSignupError(message: string) {

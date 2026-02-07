@@ -8,11 +8,6 @@ This repository is a production-grade E2E automation platform built to showcase 
 It demonstrates architecture discipline, deterministic selectors, API-assisted setup, and CI-ready workflows
 using Playwright + TypeScript.
 
-## Why this exists
-
-Hiring managers want evidence of engineering judgement, not just passing tests. This framework shows how
-I design for maintainability, determinism, and CI stability while keeping tests expressive and parallel-safe.
-
 ## Architecture at a glance
 
 ```mermaid
@@ -68,6 +63,7 @@ cp .env.example .env
 ```
 
 Key inputs:
+
 - `TEST_ENV=local|staging|prod`
 - `BASE_URL_*` per environment
 - `API_BASE_URL` optional override
@@ -98,12 +94,14 @@ The pipeline runs on pull requests and pushes with a browser matrix. It:
 HTML reports are generated under `playwright-report/`.
 
 Example output:
+
 ```
 ✓ 18 passed (2m 14s)
 ✕ 1 failed (trace + video retained)
 ```
 
 Enable Allure:
+
 ```
 ALLURE=true npm run test
 ```

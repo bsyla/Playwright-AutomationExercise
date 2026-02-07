@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
+import type { User } from "../types/user";
 import { BasePage } from "./base.page";
-import { User } from "../types/user";
 
 export class SignupPage extends BasePage {
   private readonly password = this.getByTestId("password");
@@ -23,10 +23,10 @@ export class SignupPage extends BasePage {
 
   async completeRegistration(user: User) {
     await expect(
-      this.page.getByRole("heading", { name: /Enter Account Information/i })
+      this.page.getByRole("heading", { name: /Enter Account Information/i }),
     ).toBeVisible();
     const titleLabel = user.title === "Mr" ? /Mr/i : /Mrs/i;
-    await this.page.getByLabel(titleLabel).check();
+    await this.page.getByLabel(titleLabel).first().check();
     await this.password.fill(user.password);
     await this.birthDay.selectOption({ label: user.birthDay });
     await this.birthMonth.selectOption({ label: user.birthMonth });
